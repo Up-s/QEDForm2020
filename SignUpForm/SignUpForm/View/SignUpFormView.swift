@@ -1,5 +1,5 @@
 //
-//  SignUpForm1.swift
+//  SignUpFormView.swift
 //  SignUpForm
 //
 //  Created by Lee on 2020/01/11.
@@ -8,14 +8,14 @@
 
 import UIKit
 
-class SignUpForm1: UIView {
+class SignUpFormView: UIView {
 
   private let titleLabel = UILabel()
-  private let textField = UITextField()
+  let textField = UITextField()
   private let guideLine = UILabel()
   
-  init(frame: CGRect, title: String) {
-    super.init(frame: frame)
+  init(title: String) {
+    super.init(frame: .zero)
     
     titleLabel.text = title
     
@@ -28,6 +28,9 @@ class SignUpForm1: UIView {
   }
   
   private func baseUI() {
+    self.layer.cornerRadius = 16
+    self.backgroundColor = .white
+    
     titleLabel.font = UIFont.systemFont(ofSize: 20, weight: .black)
     self.addSubview(titleLabel)
     
@@ -52,7 +55,7 @@ class SignUpForm1: UIView {
     textField.translatesAutoresizingMaskIntoConstraints = false
     textField.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: Standard.inset).isActive = true
     textField.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: Standard.inset).isActive = true
-    textField.trailingAnchor.constraint(equalTo: self.leadingAnchor, constant: -Standard.inset).isActive = true
+    textField.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -Standard.inset).isActive = true
     
     guideLine.translatesAutoresizingMaskIntoConstraints = false
     guideLine.topAnchor.constraint(equalTo: textField.bottomAnchor, constant: 3).isActive = true
