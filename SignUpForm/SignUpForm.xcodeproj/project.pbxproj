@@ -13,7 +13,8 @@
 		4F05B9B523C9B479009035E8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4F05B9B323C9B479009035E8 /* LaunchScreen.storyboard */; };
 		4F8FDCA523C9B6250052670C /* SignUpFormView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F8FDCA423C9B6250052670C /* SignUpFormView.swift */; };
 		4F8FDCA723C9B65A0052670C /* SignUpFormModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F8FDCA623C9B65A0052670C /* SignUpFormModel.swift */; };
-		4FB17F8523C9B4F600D2A0F7 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FB17F8423C9B4F600D2A0F7 /* SignUpViewController.swift */; };
+		4FB17F8523C9B4F600D2A0F7 /* SignUpViewController1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FB17F8423C9B4F600D2A0F7 /* SignUpViewController1.swift */; };
+		4FFDCE2423CA12CC00B9CD57 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FFDCE2323CA12CC00B9CD57 /* SignUpViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -25,7 +26,8 @@
 		4F05B9B623C9B479009035E8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4F8FDCA423C9B6250052670C /* SignUpFormView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpFormView.swift; sourceTree = "<group>"; };
 		4F8FDCA623C9B65A0052670C /* SignUpFormModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpFormModel.swift; sourceTree = "<group>"; };
-		4FB17F8423C9B4F600D2A0F7 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
+		4FB17F8423C9B4F600D2A0F7 /* SignUpViewController1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController1.swift; sourceTree = "<group>"; };
+		4FFDCE2323CA12CC00B9CD57 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -89,7 +91,8 @@
 		4FB17F8623C9B4FD00D2A0F7 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				4FB17F8423C9B4F600D2A0F7 /* SignUpViewController.swift */,
+				4FFDCE2323CA12CC00B9CD57 /* SignUpViewController.swift */,
+				4FB17F8423C9B4F600D2A0F7 /* SignUpViewController1.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -173,10 +176,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4FB17F8523C9B4F600D2A0F7 /* SignUpViewController.swift in Sources */,
+				4FB17F8523C9B4F600D2A0F7 /* SignUpViewController1.swift in Sources */,
 				4F05B9A923C9B478009035E8 /* AppDelegate.swift in Sources */,
 				4F8FDCA523C9B6250052670C /* SignUpFormView.swift in Sources */,
 				4F8FDCA723C9B65A0052670C /* SignUpFormModel.swift in Sources */,
+				4FFDCE2423CA12CC00B9CD57 /* SignUpViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
