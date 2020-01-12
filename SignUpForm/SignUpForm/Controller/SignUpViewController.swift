@@ -18,6 +18,7 @@ class SignUpViewController: UIViewController {
   
   private var visibleIndex = 0
   private var formViewSpace: CGFloat = 0
+  private var formViewSpaceStatus = true
   private var signUpForms = ["000", "111", "222", "333", "444", "555", "666", "777", "888", "999"]
   private var visibleForms = [SignUpFormView]()
   private var topConstraints = [NSLayoutConstraint]()
@@ -33,10 +34,14 @@ class SignUpViewController: UIViewController {
     setFormView()
   }
   
-  override func viewDidLayoutSubviews() {
-    super.viewDidLayoutSubviews()
-    formViewSpace = visibleForms[0].frame.maxY
-    print(formViewSpace)
+  override func viewDidAppear(_ animated: Bool) {
+    super.viewDidAppear(animated)
+    
+    if formViewSpaceStatus {
+      formViewSpaceStatus = false
+      formViewSpace = visibleForms[0].frame.maxY
+      print("viewDidAppear", formViewSpace)
+    }
   }
   
   private func navigation() {
