@@ -11,15 +11,12 @@ import UIKit
 class TextInputFormViewController: UIViewController {
 
   private struct Standard {
-    static let space: CGFloat = 8
-    
     static let scrollViewInset: CGFloat = 16
   }
 
   private var visibleIndex = 0
-  private var formViewSpace: CGFloat = 0
-  private var formViewSpaceStatus = true
-  private var signUpForms = ["000", "111", "222", "333", "444", "555", "666", "777", "888", "999"]
+  private var formSpace: CGFloat = 0
+  private var formSpaceStatus = true
   private var visibleForms = [BaseForm]()
   private var topConstraints = [NSLayoutConstraint]()
   
@@ -31,16 +28,16 @@ class TextInputFormViewController: UIViewController {
     
     navigation()
     mainScrollViewSet()
-    setFormView()
+    createForm()
   }
   
   override func viewDidAppear(_ animated: Bool) {
     super.viewDidAppear(animated)
     
-    if formViewSpaceStatus {
-      formViewSpaceStatus = false
-      formViewSpace = visibleForms[0].frame.maxY
-      print("viewDidAppear", formViewSpace)
+    if formSpaceStatus {
+      formSpaceStatus = false
+      formSpace = visibleForms[0].frame.maxY
+      print("viewDidAppear", formSpace)
     }
   }
   
@@ -49,18 +46,18 @@ class TextInputFormViewController: UIViewController {
     navigationController?.navigationBar.shadowImage = UIImage()
     navigationController?.navigationBar.barTintColor = .white
     
-    navigationItem.rightBarButtonItem = UIBarButtonItem(title: "✚", style: .done, target: self, action: #selector(formViewUpdateAnimate))
+    navigationItem.rightBarButtonItem = UIBarButtonItem(title: "✚", style: .done, target: self, action: #selector(formUpdateAnimate))
   }
   
-  @objc private func formViewUpdateAnimate() {
+  @objc private func formUpdateAnimate() {
     visibleIndex += 1
     
-    guard signUpForms.count > visibleIndex else { return }
+    guard formData.count > visibleIndex else { return }
     
     UIView.animate(withDuration: 0.2) { [weak self] in
       guard let `self` = self else { return }
       for i in 0...(self.visibleIndex - 1) {
-        self.topConstraints[i].constant += self.formViewSpace
+        self.topConstraints[i].constant += self.formSpace
       }
       self.view.layoutIfNeeded()
     }
@@ -88,8 +85,8 @@ class TextInputFormViewController: UIViewController {
     mainScrollView.bottomAnchor.constraint(equalTo: guide.bottomAnchor).isActive = true
   }
   
-  private func setFormView() {
-    signUpForms.enumerated().forEach {
+  private func createForm() {
+    formData.enumerated().forEach {
       let tempSignUpFormView = BaseForm(title: $1)
       visibleForms.append(tempSignUpFormView)
       mainScrollView.addSubview(tempSignUpFormView)
@@ -111,3 +108,5 @@ class TextInputFormViewController: UIViewController {
   }
   
 }
+
+
