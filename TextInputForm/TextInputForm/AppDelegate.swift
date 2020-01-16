@@ -1,6 +1,6 @@
 //
 //  AppDelegate.swift
-//  DropTextInputForm
+//  TextInputForm
 //
 //  Created by Lee on 2020/01/16.
 //  Copyright © 2020 Up's. All rights reserved.
@@ -17,7 +17,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     window = UIWindow(frame: UIScreen.main.bounds)
     
-    window?.rootViewController = DropTextInputFormViewController()
+    window?.rootViewController = TextInputFormViewController()
     window?.makeKeyAndVisible()
     
     return true

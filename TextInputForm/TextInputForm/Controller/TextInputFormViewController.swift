@@ -1,6 +1,6 @@
 //
-//  DropTextInputFormViewController.swift
-//  DropTextInputForm
+//  TextInputFormViewController.swift
+//  TextInputForm
 //
 //  Created by Lee on 2020/01/16.
 //  Copyright © 2020 Up's. All rights reserved.
@@ -8,19 +8,19 @@
 
 import UIKit
 
-private struct Standard {
-  static let space: CGFloat = 8
-  
-  static let scrollViewInset: CGFloat = 16
-}
+class TextInputFormViewController: UIViewController {
 
-class DropTextInputFormViewController: UIViewController {
-  
+  private struct Standard {
+    static let space: CGFloat = 8
+    
+    static let scrollViewInset: CGFloat = 16
+  }
+
   private var visibleIndex = 0
   private var formViewSpace: CGFloat = 0
   private var formViewSpaceStatus = true
   private var signUpForms = ["000", "111", "222", "333", "444", "555", "666", "777", "888", "999"]
-  private var visibleForms = [BaseFormView]()
+  private var visibleForms = [BaseForm]()
   private var topConstraints = [NSLayoutConstraint]()
   
   private let mainScrollView = UIScrollView()
@@ -90,7 +90,7 @@ class DropTextInputFormViewController: UIViewController {
   
   private func setFormView() {
     signUpForms.enumerated().forEach {
-      let tempSignUpFormView = BaseFormView(title: $1)
+      let tempSignUpFormView = BaseForm(title: $1)
       visibleForms.append(tempSignUpFormView)
       mainScrollView.addSubview(tempSignUpFormView)
       tempSignUpFormView.translatesAutoresizingMaskIntoConstraints = false

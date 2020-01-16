@@ -1,6 +1,6 @@
 //
-//  BaseFormView.swift
-//  DropTextInputForm
+//  BaseForm.swift
+//  TextInputForm
 //
 //  Created by Lee on 2020/01/16.
 //  Copyright © 2020 Up's. All rights reserved.
@@ -8,8 +8,8 @@
 
 import UIKit
 
-class BaseFormView: UIView {
-
+class BaseForm: UIView {
+  
   private let titleLabel = UILabel()
   let textField = UITextField()
   private let guideLine = UILabel()
