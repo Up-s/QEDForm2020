@@ -1,8 +1,8 @@
 //
 //  AppDelegate.swift
-//  SignUpForm
+//  DropTextInputForm
 //
-//  Created by Lee on 2020/01/11.
+//  Created by Lee on 2020/01/16.
 //  Copyright © 2020 Up's. All rights reserved.
 //
 
@@ -15,13 +15,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
   func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
     
-    window =  UIWindow(frame: UIScreen.main.bounds)
+    window = UIWindow(frame: UIScreen.main.bounds)
     
-    window?.rootViewController = UINavigationController(rootViewController: SignUpViewController())
+    window?.rootViewController = DropTextInputFormViewController()
     window?.makeKeyAndVisible()
     
     return true
   }
-
 }
 

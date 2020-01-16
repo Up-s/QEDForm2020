@@ -1,14 +1,14 @@
 //
-//  SignUpFormView.swift
-//  SignUpForm
+//  BaseFormView.swift
+//  DropTextInputForm
 //
-//  Created by Lee on 2020/01/11.
+//  Created by Lee on 2020/01/16.
 //  Copyright © 2020 Up's. All rights reserved.
 //
 
 import UIKit
 
-class SignUpFormView: UIView {
+class BaseFormView: UIView {
 
   private let titleLabel = UILabel()
   let textField = UITextField()

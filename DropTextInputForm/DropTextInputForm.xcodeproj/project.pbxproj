@@ -7,27 +7,27 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		4F05B9A923C9B478009035E8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F05B9A823C9B478009035E8 /* AppDelegate.swift */; };
-		4F05B9AF23C9B479009035E8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4F05B9AE23C9B479009035E8 /* Assets.xcassets */; };
-		4F05B9B223C9B479009035E8 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4F05B9B123C9B479009035E8 /* Preview Assets.xcassets */; };
-		4F05B9B523C9B479009035E8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4F05B9B323C9B479009035E8 /* LaunchScreen.storyboard */; };
-		4F8FDCA523C9B6250052670C /* SignUpFormView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F8FDCA423C9B6250052670C /* SignUpFormView.swift */; };
-		4FFDCE2423CA12CC00B9CD57 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FFDCE2323CA12CC00B9CD57 /* SignUpViewController.swift */; };
+		4F1901BE23CFF98B002CDE39 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F1901BD23CFF98B002CDE39 /* AppDelegate.swift */; };
+		4F1901C423CFF98B002CDE39 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4F1901C323CFF98B002CDE39 /* Assets.xcassets */; };
+		4F1901C723CFF98B002CDE39 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4F1901C623CFF98B002CDE39 /* Preview Assets.xcassets */; };
+		4F1901CA23CFF98B002CDE39 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4F1901C823CFF98B002CDE39 /* LaunchScreen.storyboard */; };
+		4FD5EB5A23CFFA7F0010BBB4 /* DropTextInputFormViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FD5EB5923CFFA7F0010BBB4 /* DropTextInputFormViewController.swift */; };
+		4FD5EB5C23CFFB960010BBB4 /* BaseFormView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FD5EB5B23CFFB960010BBB4 /* BaseFormView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		4F05B9A523C9B478009035E8 /* SignUpForm.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SignUpForm.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		4F05B9A823C9B478009035E8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		4F05B9AE23C9B479009035E8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		4F05B9B123C9B479009035E8 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		4F05B9B423C9B479009035E8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		4F05B9B623C9B479009035E8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		4F8FDCA423C9B6250052670C /* SignUpFormView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpFormView.swift; sourceTree = "<group>"; };
-		4FFDCE2323CA12CC00B9CD57 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
+		4F1901BA23CFF98B002CDE39 /* DropTextInputForm.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DropTextInputForm.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		4F1901BD23CFF98B002CDE39 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		4F1901C323CFF98B002CDE39 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		4F1901C623CFF98B002CDE39 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		4F1901C923CFF98B002CDE39 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		4F1901CB23CFF98B002CDE39 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4FD5EB5923CFFA7F0010BBB4 /* DropTextInputFormViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DropTextInputFormViewController.swift; sourceTree = "<group>"; };
+		4FD5EB5B23CFFB960010BBB4 /* BaseFormView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseFormView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		4F05B9A223C9B478009035E8 /* Frameworks */ = {
+		4F1901B723CFF98B002CDE39 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -37,56 +37,56 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		4F05B99C23C9B478009035E8 = {
+		4F1901B123CFF98B002CDE39 = {
 			isa = PBXGroup;
 			children = (
-				4F05B9A723C9B478009035E8 /* SignUpForm */,
-				4F05B9A623C9B478009035E8 /* Products */,
+				4F1901BC23CFF98B002CDE39 /* DropTextInputForm */,
+				4F1901BB23CFF98B002CDE39 /* Products */,
 			);
 			sourceTree = "<group>";
 		};
-		4F05B9A623C9B478009035E8 /* Products */ = {
+		4F1901BB23CFF98B002CDE39 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				4F05B9A523C9B478009035E8 /* SignUpForm.app */,
+				4F1901BA23CFF98B002CDE39 /* DropTextInputForm.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		4F05B9A723C9B478009035E8 /* SignUpForm */ = {
+		4F1901BC23CFF98B002CDE39 /* DropTextInputForm */ = {
 			isa = PBXGroup;
 			children = (
-				4F05B9A823C9B478009035E8 /* AppDelegate.swift */,
-				4FB17F8723C9B50400D2A0F7 /* View */,
-				4FB17F8623C9B4FD00D2A0F7 /* Controller */,
-				4F05B9AE23C9B479009035E8 /* Assets.xcassets */,
-				4F05B9B323C9B479009035E8 /* LaunchScreen.storyboard */,
-				4F05B9B623C9B479009035E8 /* Info.plist */,
-				4F05B9B023C9B479009035E8 /* Preview Content */,
+				4F1901BD23CFF98B002CDE39 /* AppDelegate.swift */,
+				4FD5EB5823CFFA590010BBB4 /* View */,
+				4FD5EB5723CFFA560010BBB4 /* Controller */,
+				4F1901C323CFF98B002CDE39 /* Assets.xcassets */,
+				4F1901C823CFF98B002CDE39 /* LaunchScreen.storyboard */,
+				4F1901CB23CFF98B002CDE39 /* Info.plist */,
+				4F1901C523CFF98B002CDE39 /* Preview Content */,
 			);
-			path = SignUpForm;
+			path = DropTextInputForm;
 			sourceTree = "<group>";
 		};
-		4F05B9B023C9B479009035E8 /* Preview Content */ = {
+		4F1901C523CFF98B002CDE39 /* Preview Content */ = {
 			isa = PBXGroup;
 			children = (
-				4F05B9B123C9B479009035E8 /* Preview Assets.xcassets */,
+				4F1901C623CFF98B002CDE39 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
-		4FB17F8623C9B4FD00D2A0F7 /* Controller */ = {
+		4FD5EB5723CFFA560010BBB4 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				4FFDCE2323CA12CC00B9CD57 /* SignUpViewController.swift */,
+				4FD5EB5923CFFA7F0010BBB4 /* DropTextInputFormViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
 		};
-		4FB17F8723C9B50400D2A0F7 /* View */ = {
+		4FD5EB5823CFFA590010BBB4 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				4F8FDCA423C9B6250052670C /* SignUpFormView.swift */,
+				4FD5EB5B23CFFB960010BBB4 /* BaseFormView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -94,39 +94,39 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		4F05B9A423C9B478009035E8 /* SignUpForm */ = {
+		4F1901B923CFF98B002CDE39 /* DropTextInputForm */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 4F05B9B923C9B479009035E8 /* Build configuration list for PBXNativeTarget "SignUpForm" */;
+			buildConfigurationList = 4F1901CE23CFF98B002CDE39 /* Build configuration list for PBXNativeTarget "DropTextInputForm" */;
 			buildPhases = (
-				4F05B9A123C9B478009035E8 /* Sources */,
-				4F05B9A223C9B478009035E8 /* Frameworks */,
-				4F05B9A323C9B478009035E8 /* Resources */,
+				4F1901B623CFF98B002CDE39 /* Sources */,
+				4F1901B723CFF98B002CDE39 /* Frameworks */,
+				4F1901B823CFF98B002CDE39 /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
-			name = SignUpForm;
-			productName = SignUpForm;
-			productReference = 4F05B9A523C9B478009035E8 /* SignUpForm.app */;
+			name = DropTextInputForm;
+			productName = DropTextInputForm;
+			productReference = 4F1901BA23CFF98B002CDE39 /* DropTextInputForm.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		4F05B99D23C9B478009035E8 /* Project object */ = {
+		4F1901B223CFF98B002CDE39 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 1130;
 				LastUpgradeCheck = 1130;
 				ORGANIZATIONNAME = "Up's";
 				TargetAttributes = {
-					4F05B9A423C9B478009035E8 = {
+					4F1901B923CFF98B002CDE39 = {
 						CreatedOnToolsVersion = 11.3;
 					};
 				};
 			};
-			buildConfigurationList = 4F05B9A023C9B478009035E8 /* Build configuration list for PBXProject "SignUpForm" */;
+			buildConfigurationList = 4F1901B523CFF98B002CDE39 /* Build configuration list for PBXProject "DropTextInputForm" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -134,47 +134,47 @@
 				en,
 				Base,
 			);
-			mainGroup = 4F05B99C23C9B478009035E8;
-			productRefGroup = 4F05B9A623C9B478009035E8 /* Products */;
+			mainGroup = 4F1901B123CFF98B002CDE39;
+			productRefGroup = 4F1901BB23CFF98B002CDE39 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				4F05B9A423C9B478009035E8 /* SignUpForm */,
+				4F1901B923CFF98B002CDE39 /* DropTextInputForm */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		4F05B9A323C9B478009035E8 /* Resources */ = {
+		4F1901B823CFF98B002CDE39 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4F05B9B523C9B479009035E8 /* LaunchScreen.storyboard in Resources */,
-				4F05B9B223C9B479009035E8 /* Preview Assets.xcassets in Resources */,
-				4F05B9AF23C9B479009035E8 /* Assets.xcassets in Resources */,
+				4F1901CA23CFF98B002CDE39 /* LaunchScreen.storyboard in Resources */,
+				4F1901C723CFF98B002CDE39 /* Preview Assets.xcassets in Resources */,
+				4F1901C423CFF98B002CDE39 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		4F05B9A123C9B478009035E8 /* Sources */ = {
+		4F1901B623CFF98B002CDE39 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4F05B9A923C9B478009035E8 /* AppDelegate.swift in Sources */,
-				4F8FDCA523C9B6250052670C /* SignUpFormView.swift in Sources */,
-				4FFDCE2423CA12CC00B9CD57 /* SignUpViewController.swift in Sources */,
+				4F1901BE23CFF98B002CDE39 /* AppDelegate.swift in Sources */,
+				4FD5EB5A23CFFA7F0010BBB4 /* DropTextInputFormViewController.swift in Sources */,
+				4FD5EB5C23CFFB960010BBB4 /* BaseFormView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		4F05B9B323C9B479009035E8 /* LaunchScreen.storyboard */ = {
+		4F1901C823CFF98B002CDE39 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				4F05B9B423C9B479009035E8 /* Base */,
+				4F1901C923CFF98B002CDE39 /* Base */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
@@ -182,7 +182,7 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
-		4F05B9B723C9B479009035E8 /* Debug */ = {
+		4F1901CC23CFF98B002CDE39 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -242,7 +242,7 @@
 			};
 			name = Debug;
 		};
-		4F05B9B823C9B479009035E8 /* Release */ = {
+		4F1901CD23CFF98B002CDE39 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -296,42 +296,40 @@
 			};
 			name = Release;
 		};
-		4F05B9BA23C9B479009035E8 /* Debug */ = {
+		4F1901CF23CFF98B002CDE39 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_ASSET_PATHS = "\"SignUpForm/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"DropTextInputForm/Preview Content\"";
 				DEVELOPMENT_TEAM = ZLN97H98PA;
 				ENABLE_PREVIEWS = YES;
-				INFOPLIST_FILE = SignUpForm/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				INFOPLIST_FILE = DropTextInputForm/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "github.com-Up-s.SignUpForm";
+				PRODUCT_BUNDLE_IDENTIFIER = "github.com-Up-s.DropTextInputForm";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
-		4F05B9BB23C9B479009035E8 /* Release */ = {
+		4F1901D023CFF98B002CDE39 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_ASSET_PATHS = "\"SignUpForm/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"DropTextInputForm/Preview Content\"";
 				DEVELOPMENT_TEAM = ZLN97H98PA;
 				ENABLE_PREVIEWS = YES;
-				INFOPLIST_FILE = SignUpForm/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				INFOPLIST_FILE = DropTextInputForm/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "github.com-Up-s.SignUpForm";
+				PRODUCT_BUNDLE_IDENTIFIER = "github.com-Up-s.DropTextInputForm";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -341,25 +339,25 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		4F05B9A023C9B478009035E8 /* Build configuration list for PBXProject "SignUpForm" */ = {
+		4F1901B523CFF98B002CDE39 /* Build configuration list for PBXProject "DropTextInputForm" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				4F05B9B723C9B479009035E8 /* Debug */,
-				4F05B9B823C9B479009035E8 /* Release */,
+				4F1901CC23CFF98B002CDE39 /* Debug */,
+				4F1901CD23CFF98B002CDE39 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		4F05B9B923C9B479009035E8 /* Build configuration list for PBXNativeTarget "SignUpForm" */ = {
+		4F1901CE23CFF98B002CDE39 /* Build configuration list for PBXNativeTarget "DropTextInputForm" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				4F05B9BA23C9B479009035E8 /* Debug */,
-				4F05B9BB23C9B479009035E8 /* Release */,
+				4F1901CF23CFF98B002CDE39 /* Debug */,
+				4F1901D023CFF98B002CDE39 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
-	rootObject = 4F05B99D23C9B478009035E8 /* Project object */;
+	rootObject = 4F1901B223CFF98B002CDE39 /* Project object */;
 }
