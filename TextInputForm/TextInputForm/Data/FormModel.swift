@@ -9,11 +9,11 @@
 import UIKit
 
 enum FormType {
-  case base(BaseFormType)
-  case number
+  case text(String, KeyBoardType)
+  case birth(String, String, String)
 }
 
-enum BaseFormType {
+enum KeyBoardType {
   case nomarl
   case email
   case number
@@ -31,51 +31,51 @@ var formData: [FormModel] = [
   FormModel(
     title: "이메일을 입력해주세요",
     subTitle: "이메일",
-    type: FormType.base(BaseFormType.email)
+    type: FormType.text("Email", KeyBoardType.email)
   ),
   FormModel(
     title: "이름을 입력해주세요",
     subTitle: "이름",
-    type: FormType.base(BaseFormType.nomarl)
+    type: FormType.text("Name", KeyBoardType.nomarl)
   ),
   FormModel(
     title: "전화번호를 입력해주세요",
     subTitle: "전화번호",
-    type: FormType.base(BaseFormType.number)
+    type: FormType.text("Phone Number", KeyBoardType.number)
   ),
   FormModel(
     title: "닉네임을 입력해주세요",
     subTitle: "닉네임",
-    type: FormType.base(BaseFormType.nomarl)
+    type: FormType.text("Nick Name", KeyBoardType.nomarl)
   ),
   FormModel(
     title: "취미를 적어주세요",
     subTitle: "취미",
-    type: FormType.base(BaseFormType.nomarl)
+    type: FormType.text("Hobby", KeyBoardType.nomarl)
   ),
   FormModel(
     title: "생년월일을 입력해주세요",
     subTitle: "생년월일",
-    type: FormType.base(BaseFormType.number)
+    type: FormType.birth("Year", "Month", "Day")
   ),
   FormModel(
     title: "성별을 입력해주세요",
     subTitle: "성별",
-    type: FormType.base(BaseFormType.email)
+    type: FormType.text("Gender", KeyBoardType.email)
   ),
   FormModel(
     title: "주소를 입력해주세요",
     subTitle: "주소",
-    type: FormType.base(BaseFormType.nomarl)
+    type: FormType.text("Address", KeyBoardType.nomarl)
   ),
   FormModel(
     title: "비밀번호를 입력해주세요",
     subTitle: "비밀번호",
-    type: FormType.base(BaseFormType.password)
+    type: FormType.text("Password", KeyBoardType.password)
   ),
   FormModel(
     title: "비밀번호를 재입력해주세요",
     subTitle: "비밀번호",
-    type: FormType.base(BaseFormType.password)
+    type: FormType.text("Password", KeyBoardType.password)
   )
 ]

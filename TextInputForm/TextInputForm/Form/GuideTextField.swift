@@ -1,0 +1,82 @@
+//
+//  GuideTextField.swift
+//  TextInputForm
+//
+//  Created by Lee on 2020/01/17.
+//  Copyright © 2020 Up's. All rights reserved.
+//
+
+import UIKit
+
+class GuideTextField: UITextField {
+  
+  override func canPerformAction(_ action: Selector, withSender sender: Any?) -> Bool {
+    return false
+  }
+  
+  lazy var height: CGFloat = {
+    self.font = UIFont.systemFont(ofSize: 25, weight: .light)
+    let textFieldAttr = [NSAttributedString.Key.font: self.font!]
+    return ("Test" as NSString).size(withAttributes: textFieldAttr).height
+  }()
+  private var subLabelCentYAnchor: NSLayoutConstraint?
+  
+  private let subLabel = UILabel()
+  private let guidLine = UILabel()
+  
+  init(sub: String) {
+    super.init(frame: .zero)
+    
+    self.placeholder = sub
+    self.addTarget(self, action: #selector(subLabelAnimated), for: .editingChanged)
+    self.autocapitalizationType = .none
+    self.addTarget(self, action: #selector(guideLineColorChange), for: .editingChanged)
+    self.addTarget(self, action: #selector(deleteText), for: .editingDidBegin)
+    
+    subLabel.text = sub
+    subLabel.alpha = 0
+    subLabel.font = UIFont.systemFont(ofSize: 12, weight: .heavy)
+    self.addSubview(subLabel)
+    subLabel.translatesAutoresizingMaskIntoConstraints = false
+    subLabelCentYAnchor = subLabel.centerYAnchor.constraint(equalTo: self.centerYAnchor)
+    subLabelCentYAnchor?.isActive = true
+    subLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor).isActive = true
+    subLabel.trailingAnchor.constraint(equalTo: self.trailingAnchor).isActive = true
+    
+    guidLine.backgroundColor = .red
+    self.addSubview(guidLine)
+    guidLine.translatesAutoresizingMaskIntoConstraints = false
+    guidLine.topAnchor.constraint(equalTo: self.bottomAnchor, constant: 4).isActive = true
+    guidLine.leadingAnchor.constraint(equalTo: self.leadingAnchor).isActive = true
+    guidLine.trailingAnchor.constraint(equalTo: self.trailingAnchor).isActive = true
+    guidLine.heightAnchor.constraint(equalToConstant: 3).isActive = true
+  }
+  
+  required init?(coder: NSCoder) {
+    fatalError("init(coder:) has not been implemented")
+  }
+  
+  @objc
+  private func subLabelAnimated() {
+    let moveDistance: CGFloat = 24
+    UIView.animate(withDuration: 0.2, delay: 0.2, options: [], animations: { [weak self] in
+      self?.subLabelCentYAnchor?.constant = -moveDistance
+      self?.subLabel.alpha = 1
+      self?.layoutIfNeeded()
+    })
+  }
+  
+  @objc
+  func guideLineColorChange(_ sender: UITextField) {
+    guard let text = sender.text else { return }
+    UIView.animate(withDuration: 1) { [weak self] in
+      self?.guidLine.backgroundColor = text.isEmpty ? .red : #colorLiteral(red: 0.2745098174, green: 0.4862745106, blue: 0.1411764771, alpha: 1)
+      self?.layoutIfNeeded()
+    }
+  }
+  
+  @objc
+  private func deleteText(_ sender: UITextField) {
+    sender.text = nil
+  }
+}
