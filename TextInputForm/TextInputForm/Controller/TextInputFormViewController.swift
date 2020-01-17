@@ -10,16 +10,15 @@ import UIKit
 
 class TextInputFormViewController: UIViewController {
 
-  private struct Standard {
-    static let scrollViewInset: CGFloat = 16
+  private struct Padding {
+    static let inset: CGFloat = 16
   }
 
   private var visibleIndex = 0
-  private var formSpace: CGFloat = 0
-  private var formSpaceStatus = true
-  private var visibleForms = [BaseForm]()
+  private var forms = [BaseForm]()
   private var topConstraints = [NSLayoutConstraint]()
   
+  private let titleLabel = UILabel()
   private let mainScrollView = UIScrollView()
   
   override func viewDidLoad() {
@@ -27,18 +26,8 @@ class TextInputFormViewController: UIViewController {
     view.backgroundColor = .white
     
     navigation()
-    mainScrollViewSet()
+    baseUI()
     createForm()
-  }
-  
-  override func viewDidAppear(_ animated: Bool) {
-    super.viewDidAppear(animated)
-    
-    if formSpaceStatus {
-      formSpaceStatus = false
-      formSpace = visibleForms[0].frame.maxY
-      print("viewDidAppear", formSpace)
-    }
   }
   
   private func navigation() {
@@ -52,12 +41,12 @@ class TextInputFormViewController: UIViewController {
   @objc private func formUpdateAnimate() {
     visibleIndex += 1
     
-    guard formData.count > visibleIndex else { return }
+    guard forms.count > visibleIndex else { return }
     
     UIView.animate(withDuration: 0.2) { [weak self] in
       guard let `self` = self else { return }
       for i in 0...(self.visibleIndex - 1) {
-        self.topConstraints[i].constant += self.formSpace
+        self.topConstraints[i].constant += Padding.inset + self.forms[self.visibleIndex].frame.height
       }
       self.view.layoutIfNeeded()
     }
@@ -68,18 +57,32 @@ class TextInputFormViewController: UIViewController {
       options: [],
       animations: { [weak self] in
         guard let `self` = self else { return }
-        self.visibleForms[self.visibleIndex].alpha = 1
+        self.forms[self.visibleIndex].alpha = 1
         self.view.layoutIfNeeded()
     })
+    
+    titleLabel.text = formData[visibleIndex].title
+    forms[visibleIndex - 1].subLabelAnimated(status: true)
   }
   
-  private func mainScrollViewSet() {
-    mainScrollView.backgroundColor = #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1)
+  private func baseUI() {
+    titleLabel.backgroundColor = .white
+    titleLabel.text = formData[visibleIndex].title
+    titleLabel.font = UIFont.systemFont(ofSize: 30, weight: .heavy)
+    view.addSubview(titleLabel)
+    
+    mainScrollView.backgroundColor = .white
     view.addSubview(mainScrollView)
     
     let guide = view.safeAreaLayoutGuide
+    
+    titleLabel.translatesAutoresizingMaskIntoConstraints = false
+    titleLabel.topAnchor.constraint(equalTo: guide.topAnchor, constant: Padding.inset).isActive = true
+    titleLabel.leadingAnchor.constraint(equalTo: guide.leadingAnchor, constant: Padding.inset).isActive = true
+    titleLabel.trailingAnchor.constraint(equalTo: guide.trailingAnchor, constant: -Padding.inset).isActive = true
+    
     mainScrollView.translatesAutoresizingMaskIntoConstraints = false
-    mainScrollView.topAnchor.constraint(equalTo: guide.topAnchor).isActive = true
+    mainScrollView.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: Padding.inset).isActive = true
     mainScrollView.leadingAnchor.constraint(equalTo: guide.leadingAnchor).isActive = true
     mainScrollView.trailingAnchor.constraint(equalTo: guide.trailingAnchor).isActive = true
     mainScrollView.bottomAnchor.constraint(equalTo: guide.bottomAnchor).isActive = true
@@ -87,22 +90,21 @@ class TextInputFormViewController: UIViewController {
   
   private func createForm() {
     formData.enumerated().forEach {
-      let tempSignUpFormView = BaseForm(title: $1)
-      visibleForms.append(tempSignUpFormView)
-      mainScrollView.addSubview(tempSignUpFormView)
-      tempSignUpFormView.translatesAutoresizingMaskIntoConstraints = false
-      tempSignUpFormView.centerXAnchor.constraint(equalTo: mainScrollView.centerXAnchor).isActive = true
-      let tempTopConstraint = tempSignUpFormView.topAnchor.constraint(equalTo: mainScrollView.topAnchor, constant: Standard.scrollViewInset)
+      let tempForm = BaseForm(form: $1)
+      forms.append(tempForm)
+      mainScrollView.addSubview(tempForm)
+      tempForm.translatesAutoresizingMaskIntoConstraints = false
+      tempForm.centerXAnchor.constraint(equalTo: mainScrollView.centerXAnchor).isActive = true
+      let tempTopConstraint = tempForm.topAnchor.constraint(equalTo: mainScrollView.topAnchor, constant: Padding.inset)
       tempTopConstraint.isActive = true
       topConstraints.append(tempTopConstraint)
-      
-      tempSignUpFormView.widthAnchor.constraint(equalTo: mainScrollView.widthAnchor, constant: (-Standard.scrollViewInset * 2)).isActive = true
+      tempForm.leadingAnchor.constraint(equalTo: mainScrollView.leadingAnchor, constant: Padding.inset).isActive = true
+      tempForm.trailingAnchor.constraint(equalTo: mainScrollView.trailingAnchor, constant: -Padding.inset).isActive = true
       
       if $0 == 0 {
-        tempSignUpFormView.bottomAnchor.constraint(equalTo: mainScrollView.bottomAnchor, constant: -Standard.scrollViewInset).isActive = true
+        tempForm.bottomAnchor.constraint(equalTo: mainScrollView.bottomAnchor, constant: -Padding.inset).isActive = true
       } else {
-        tempSignUpFormView.alpha = 0
-        tempSignUpFormView.heightAnchor.constraint(equalTo: visibleForms[0].heightAnchor).isActive = true
+        tempForm.alpha = 0
       }
     }
   }

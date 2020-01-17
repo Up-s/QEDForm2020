@@ -17,7 +17,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     window = UIWindow(frame: UIScreen.main.bounds)
     
-    window?.rootViewController = TextInputFormViewController()
+//    window?.rootViewController = TextInputFormViewController()
+    window?.rootViewController = UINavigationController(rootViewController: TextInputFormViewController())
     window?.makeKeyAndVisible()
     
     return true

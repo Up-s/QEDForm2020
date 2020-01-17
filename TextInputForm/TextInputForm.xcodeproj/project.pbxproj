@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		4FDDA6E923D02CF3009AE461 /* FormData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FDDA6E823D02CF3009AE461 /* FormData.swift */; };
+		4F21F11523D14ED60047C3A6 /* FormModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F21F11423D14ED60047C3A6 /* FormModel.swift */; };
 		4FDEFDE323D024E600AFA2D1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FDEFDE223D024E600AFA2D1 /* AppDelegate.swift */; };
 		4FDEFDE923D024E800AFA2D1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4FDEFDE823D024E800AFA2D1 /* Assets.xcassets */; };
 		4FDEFDEC23D024E800AFA2D1 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4FDEFDEB23D024E800AFA2D1 /* Preview Assets.xcassets */; };
@@ -17,7 +17,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		4FDDA6E823D02CF3009AE461 /* FormData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormData.swift; sourceTree = "<group>"; };
+		4F21F11423D14ED60047C3A6 /* FormModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormModel.swift; sourceTree = "<group>"; };
 		4FDEFDDF23D024E600AFA2D1 /* TextInputForm.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TextInputForm.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4FDEFDE223D024E600AFA2D1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4FDEFDE823D024E800AFA2D1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -42,7 +42,7 @@
 		4FDDA6E723D02CE6009AE461 /* Data */ = {
 			isa = PBXGroup;
 			children = (
-				4FDDA6E823D02CF3009AE461 /* FormData.swift */,
+				4F21F11423D14ED60047C3A6 /* FormModel.swift */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -176,7 +176,7 @@
 				4FDEFDF923D0255800AFA2D1 /* TextInputFormViewController.swift in Sources */,
 				4FDEFDE323D024E600AFA2D1 /* AppDelegate.swift in Sources */,
 				4FDEFDFB23D0282B00AFA2D1 /* BaseForm.swift in Sources */,
-				4FDDA6E923D02CF3009AE461 /* FormData.swift in Sources */,
+				4F21F11523D14ED60047C3A6 /* FormModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
