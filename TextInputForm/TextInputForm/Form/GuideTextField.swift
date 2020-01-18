@@ -24,32 +24,35 @@ class GuideTextField: UITextField {
   private let subLabel = UILabel()
   private let guidLine = UILabel()
   
-  init(sub: String) {
+  init(sub: String?) {
     super.init(frame: .zero)
     
     self.placeholder = sub
-    self.addTarget(self, action: #selector(subLabelAnimated), for: .editingChanged)
     self.autocapitalizationType = .none
+    self.addTarget(self, action: #selector(subLabelAnimated), for: .editingChanged)
     self.addTarget(self, action: #selector(guideLineColorChange), for: .editingChanged)
     self.addTarget(self, action: #selector(deleteText), for: .editingDidBegin)
     
     subLabel.text = sub
     subLabel.alpha = 0
     subLabel.font = UIFont.systemFont(ofSize: 12, weight: .heavy)
-    self.addSubview(subLabel)
-    subLabel.translatesAutoresizingMaskIntoConstraints = false
-    subLabelCentYAnchor = subLabel.centerYAnchor.constraint(equalTo: self.centerYAnchor)
-    subLabelCentYAnchor?.isActive = true
-    subLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor).isActive = true
-    subLabel.trailingAnchor.constraint(equalTo: self.trailingAnchor).isActive = true
     
     guidLine.backgroundColor = .red
-    self.addSubview(guidLine)
-    guidLine.translatesAutoresizingMaskIntoConstraints = false
-    guidLine.topAnchor.constraint(equalTo: self.bottomAnchor, constant: 4).isActive = true
-    guidLine.leadingAnchor.constraint(equalTo: self.leadingAnchor).isActive = true
-    guidLine.trailingAnchor.constraint(equalTo: self.trailingAnchor).isActive = true
-    guidLine.heightAnchor.constraint(equalToConstant: 3).isActive = true
+    
+    [subLabel, guidLine].forEach {
+      self.addSubview($0)
+      $0.translatesAutoresizingMaskIntoConstraints = false
+      $0.leadingAnchor.constraint(equalTo: self.leadingAnchor).isActive = true
+      $0.trailingAnchor.constraint(equalTo: self.trailingAnchor).isActive = true
+    }
+    
+    subLabelCentYAnchor = subLabel.centerYAnchor.constraint(equalTo: self.centerYAnchor)
+    subLabelCentYAnchor?.isActive = true
+    
+    NSLayoutConstraint.activate([
+      guidLine.topAnchor.constraint(equalTo: self.bottomAnchor, constant: 4),
+      guidLine.heightAnchor.constraint(equalToConstant: 3)
+    ])
   }
   
   required init?(coder: NSCoder) {

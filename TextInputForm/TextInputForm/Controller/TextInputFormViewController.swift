@@ -9,14 +9,14 @@
 import UIKit
 
 class TextInputFormViewController: UIViewController {
-
+  
   private struct Padding {
     static let xPadding: CGFloat = 32
     static let yPadding: CGFloat = 8
   }
-
+  
   private var visibleIndex = 0
-  private var forms = [UIView]()
+  private var forms = [Form]()
   private var topConstraints = [NSLayoutConstraint]()
   
   private let titleLabel = UILabel()
@@ -29,6 +29,7 @@ class TextInputFormViewController: UIViewController {
     navigation()
     baseUI()
     createForm()
+    formsConstraint()
   }
   
   private func navigation() {
@@ -67,24 +68,27 @@ class TextInputFormViewController: UIViewController {
     titleLabel.backgroundColor = .white
     titleLabel.text = formData[visibleIndex].title
     titleLabel.font = UIFont.systemFont(ofSize: 30, weight: .heavy)
-    view.addSubview(titleLabel)
     
     mainScrollView.delegate = self
     mainScrollView.backgroundColor = .white
-    view.addSubview(mainScrollView)
     
     let guide = view.safeAreaLayoutGuide
     
-    titleLabel.translatesAutoresizingMaskIntoConstraints = false
-    titleLabel.topAnchor.constraint(equalTo: guide.topAnchor, constant: Padding.yPadding).isActive = true
-    titleLabel.leadingAnchor.constraint(equalTo: guide.leadingAnchor, constant: Padding.xPadding).isActive = true
-    titleLabel.trailingAnchor.constraint(equalTo: guide.trailingAnchor, constant: -Padding.xPadding).isActive = true
+    [titleLabel, mainScrollView].forEach {
+      view.addSubview($0)
+      $0.translatesAutoresizingMaskIntoConstraints = false
+    }
     
-    mainScrollView.translatesAutoresizingMaskIntoConstraints = false
-    mainScrollView.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: Padding.yPadding).isActive = true
-    mainScrollView.leadingAnchor.constraint(equalTo: guide.leadingAnchor).isActive = true
-    mainScrollView.trailingAnchor.constraint(equalTo: guide.trailingAnchor).isActive = true
-    mainScrollView.bottomAnchor.constraint(equalTo: guide.bottomAnchor).isActive = true
+    NSLayoutConstraint.activate([
+      titleLabel.topAnchor.constraint(equalTo: guide.topAnchor, constant: Padding.yPadding),
+      titleLabel.leadingAnchor.constraint(equalTo: guide.leadingAnchor, constant: Padding.xPadding),
+      titleLabel.trailingAnchor.constraint(equalTo: guide.trailingAnchor, constant: -Padding.xPadding),
+      
+      mainScrollView.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: Padding.yPadding),
+      mainScrollView.leadingAnchor.constraint(equalTo: guide.leadingAnchor),
+      mainScrollView.trailingAnchor.constraint(equalTo: guide.trailingAnchor),
+      mainScrollView.bottomAnchor.constraint(equalTo: guide.bottomAnchor)
+    ])
   }
   
   private func createForm() {
@@ -92,48 +96,39 @@ class TextInputFormViewController: UIViewController {
       switch $1.type {
       case .text(let sub, let type):
         let tempForm = TextForm(sub: sub, keyBoardType: type)
-        tempForm.guidTextField.delegate = self
-        
+        tempForm.tag = $0
+        tempForm.delegate = self
         forms.append(tempForm)
         mainScrollView.addSubview(tempForm)
-        tempForm.translatesAutoresizingMaskIntoConstraints = false
-        tempForm.centerXAnchor.constraint(equalTo: mainScrollView.centerXAnchor).isActive = true
-        let tempTopConstraint = tempForm.topAnchor.constraint(equalTo: mainScrollView.topAnchor, constant: Padding.yPadding)
-        tempTopConstraint.isActive = true
-        topConstraints.append(tempTopConstraint)
-        tempForm.leadingAnchor.constraint(equalTo: mainScrollView.leadingAnchor, constant: Padding.xPadding).isActive = true
-        tempForm.trailingAnchor.constraint(equalTo: mainScrollView.trailingAnchor, constant: -Padding.xPadding).isActive = true
-        
-        if $0 == 0 {
-          tempForm.bottomAnchor.constraint(equalTo: mainScrollView.bottomAnchor, constant: -Padding.yPadding).isActive = true
-        } else {
-          tempForm.alpha = 0
-        }
         
       case .birth(let year, let month, let day):
         let tempForm = BirthForm(year: year, month: month, day: day)
-//        tempForm.guidTextField.delegate = self
-        
+        tempForm.tag = $0
+        tempForm.delegate = self
         forms.append(tempForm)
         mainScrollView.addSubview(tempForm)
-        tempForm.translatesAutoresizingMaskIntoConstraints = false
-        tempForm.centerXAnchor.constraint(equalTo: mainScrollView.centerXAnchor).isActive = true
-        let tempTopConstraint = tempForm.topAnchor.constraint(equalTo: mainScrollView.topAnchor, constant: Padding.yPadding)
-        tempTopConstraint.isActive = true
-        topConstraints.append(tempTopConstraint)
-        tempForm.leadingAnchor.constraint(equalTo: mainScrollView.leadingAnchor, constant: Padding.xPadding).isActive = true
-        tempForm.trailingAnchor.constraint(equalTo: mainScrollView.trailingAnchor, constant: -Padding.xPadding).isActive = true
-        
-        if $0 == 0 {
-          tempForm.bottomAnchor.constraint(equalTo: mainScrollView.bottomAnchor, constant: -Padding.yPadding).isActive = true
-        } else {
-          tempForm.alpha = 0
-        }
       }
-      
     }
   }
   
+  private func formsConstraint() {
+    forms.enumerated().forEach {
+      $1.translatesAutoresizingMaskIntoConstraints = false
+      $1.centerXAnchor.constraint(equalTo: mainScrollView.centerXAnchor).isActive = true
+      let tempTopConstraint = $1.topAnchor.constraint(equalTo: mainScrollView.topAnchor, constant: Padding.yPadding)
+      tempTopConstraint.isActive = true
+      topConstraints.append(tempTopConstraint)
+      $1.leadingAnchor.constraint(equalTo: mainScrollView.leadingAnchor, constant: Padding.xPadding).isActive = true
+      $1.trailingAnchor.constraint(equalTo: mainScrollView.trailingAnchor, constant: -Padding.xPadding).isActive = true
+      
+      if $0 == 0 {
+        forms[$0].targetTextField?.becomeFirstResponder()
+        $1.bottomAnchor.constraint(equalTo: mainScrollView.bottomAnchor, constant: -Padding.yPadding).isActive = true
+      } else {
+        $1.alpha = 0
+      }
+    }
+  }
 }
 
 extension TextInputFormViewController: UIScrollViewDelegate {
@@ -142,13 +137,9 @@ extension TextInputFormViewController: UIScrollViewDelegate {
   }
 }
 
-extension TextInputFormViewController: UITextFieldDelegate {
-  func textFieldDidChangeSelection(_ textField: UITextField) {
-//    print("VC", textField.text)
-  }
-  
-  func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+extension TextInputFormViewController: FormDelegate {
+  func nextFocus(tag: Int) {
     formUpdateAnimate()
-    return false
+    forms[tag + 1].targetTextField?.becomeFirstResponder()
   }
 }

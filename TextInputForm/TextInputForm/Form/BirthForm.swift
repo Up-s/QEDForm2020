@@ -7,25 +7,17 @@
 //
 
 import UIKit
-
-class BirthForm: UIView {
-  
-  private var currentYear: Int?
+class BirthForm: Form {
   
   let yearGuideTextField: GuideTextField
   private let monthGuideTextField: GuideTextField
-  let dayGuideTextField: GuideTextField
+  private let dayGuideTextField: GuideTextField
   
   init(year: String, month: String, day: String) {
     self.yearGuideTextField = GuideTextField(sub: year)
     self.monthGuideTextField = GuideTextField(sub: month)
     self.dayGuideTextField = GuideTextField(sub: day)
     super.init(frame: .zero)
-    
-    let date = Date()
-    let calendar = Calendar.current
-    let components = calendar.dateComponents([.year], from: date)
-    currentYear = components.year
     
     baseUI()
     constraint()
@@ -36,17 +28,14 @@ class BirthForm: UIView {
   }
   
   private func baseUI() {
-    yearGuideTextField.keyboardType = .numberPad
-    yearGuideTextField.addTarget(self, action: #selector(nextFocused(_:)), for: .editingChanged)
-    self.addSubview(yearGuideTextField)
+    self.targetTextField = yearGuideTextField
     
-    monthGuideTextField.keyboardType = .numberPad
-    monthGuideTextField.addTarget(self, action: #selector(nextFocused(_:)), for: .editingChanged)
-    monthGuideTextField.addTarget(self, action: #selector(checkInt(_:)), for: .editingDidEnd)
-    self.addSubview(monthGuideTextField)
-    
-    dayGuideTextField.keyboardType = .numberPad
-    self.addSubview(dayGuideTextField)
+    [yearGuideTextField, monthGuideTextField, dayGuideTextField].forEach {
+      $0.keyboardType = .numberPad
+      $0.addTarget(self, action: #selector(checkInt(_:)), for: .editingDidEnd)
+      $0.addTarget(self, action: #selector(nextFocused(_:)), for: .editingChanged)
+      self.addSubview($0)
+    }
   }
   
   @objc
@@ -56,45 +45,50 @@ class BirthForm: UIView {
   
   @objc
   private func nextFocused(_ sender: UITextField) {
-    guard let text = sender.text, let currentYear = self.currentYear else { return }
+    guard let text = sender.text else { return }
     switch sender {
     case yearGuideTextField:
+      let date = Date()
+      let calendar = Calendar.current
+      let components = calendar.dateComponents([.year], from: date)
+      guard let currentYear = components.year else { return }
+      
       guard text.count >= 4 else { return }
       guard let year = Int(text), year < currentYear else { return sender.text = nil }
       monthGuideTextField.becomeFirstResponder()
       
-    default:
+    case monthGuideTextField:
       guard text.count >= 2 else { return }
       guard let month = Int(text), month < 13 else { return sender.text = nil }
       dayGuideTextField.becomeFirstResponder()
+      
+    default:
+      guard text.count >= 2 else { return }
+      guard let day = Int(text), day < 32 else { return sender.text = nil }
+      delegate?.nextFocus(tag: self.tag)
     }
   }
   
-  private struct Padding {
-    static let inset: CGFloat = 0
+  struct Padding {
     static let itemToPadding: CGFloat = 24
-    static let topSpace: CGFloat = 32
-    static let bottomSpace: CGFloat = 24
   }
   
   private func constraint() {
-    yearGuideTextField.translatesAutoresizingMaskIntoConstraints = false
-    yearGuideTextField.topAnchor.constraint(equalTo: self.topAnchor, constant: Padding.topSpace).isActive = true
-    yearGuideTextField.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: Padding.inset).isActive = true
-    yearGuideTextField.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -Padding.bottomSpace).isActive = true
-    yearGuideTextField.widthAnchor.constraint(equalTo: dayGuideTextField.widthAnchor, multiplier: 1.5).isActive = true
+    [yearGuideTextField, monthGuideTextField, dayGuideTextField].forEach {
+      $0.translatesAutoresizingMaskIntoConstraints = false
+      $0.topAnchor.constraint(equalTo: self.topAnchor, constant: Padding.topSpace).isActive = true
+      $0.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -Padding.bottomSpace).isActive = true
+    }
     
-    monthGuideTextField.translatesAutoresizingMaskIntoConstraints = false
-    monthGuideTextField.topAnchor.constraint(equalTo: self.topAnchor, constant: Padding.topSpace).isActive = true
-    monthGuideTextField.leadingAnchor.constraint(equalTo: yearGuideTextField.trailingAnchor, constant: Padding.itemToPadding).isActive = true
-    monthGuideTextField.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -Padding.bottomSpace).isActive = true
-    monthGuideTextField.widthAnchor.constraint(equalTo: dayGuideTextField.widthAnchor, multiplier: 1).isActive = true
-    
-    dayGuideTextField.translatesAutoresizingMaskIntoConstraints = false
-    dayGuideTextField.topAnchor.constraint(equalTo: self.topAnchor, constant: Padding.topSpace).isActive = true
-    dayGuideTextField.leadingAnchor.constraint(equalTo: monthGuideTextField.trailingAnchor, constant: Padding.itemToPadding).isActive = true
-    dayGuideTextField.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -Padding.inset).isActive = true
-    dayGuideTextField.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -Padding.bottomSpace).isActive = true
+    NSLayoutConstraint.activate([
+      yearGuideTextField.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: Padding.inset),
+      yearGuideTextField.widthAnchor.constraint(equalTo: dayGuideTextField.widthAnchor, multiplier: 1.5),
+      
+      monthGuideTextField.leadingAnchor.constraint(equalTo: yearGuideTextField.trailingAnchor, constant: Padding.itemToPadding),
+      monthGuideTextField.widthAnchor.constraint(equalTo: dayGuideTextField.widthAnchor, multiplier: 1),
+      
+      dayGuideTextField.leadingAnchor.constraint(equalTo: monthGuideTextField.trailingAnchor, constant: Padding.itemToPadding),
+      dayGuideTextField.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -Padding.inset)
+    ])
   }
-  
 }

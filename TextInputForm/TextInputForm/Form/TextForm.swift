@@ -8,12 +8,11 @@
 
 import UIKit
 
-class TextForm: UIView {
+class TextForm: Form {
   
   private let keyBoardType: KeyBoardType
-  private var subLabelCentYAnchor: NSLayoutConstraint?
   
-  let guidTextField: GuideTextField
+  private let guidTextField: GuideTextField
   
   init(sub: String, keyBoardType: KeyBoardType) {
     self.guidTextField = GuideTextField(sub: sub)
@@ -30,6 +29,7 @@ class TextForm: UIView {
   
   private func baseUI() {
     self.backgroundColor = .white
+    self.targetTextField = guidTextField
     
     switch keyBoardType {
     case .email:
@@ -42,14 +42,14 @@ class TextForm: UIView {
       guidTextField.isSecureTextEntry = true
       guidTextField.keyboardType = .default
     }
-    
+    guidTextField.addTarget(self, action: #selector(nextFocused(_:)), for: .editingDidEndOnExit)
     self.addSubview(guidTextField)
   }
   
-  private struct Padding {
-    static let inset: CGFloat = 0
-    static let topSpace: CGFloat = 32
-    static let bottomSpace: CGFloat = 24
+  @objc
+  private func nextFocused(_ sender: UITextField) {
+    guard let text = sender.text, !text.isEmpty else { return }
+    delegate?.nextFocus(tag: self.tag)
   }
   
   private func constraint() {
@@ -61,3 +61,4 @@ class TextForm: UIView {
     guidTextField.heightAnchor.constraint(equalToConstant: guidTextField.height).isActive = true
   }
 }
+
