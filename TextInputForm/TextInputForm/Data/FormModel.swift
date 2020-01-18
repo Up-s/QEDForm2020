@@ -12,6 +12,7 @@ enum FormType {
   case text(String, KeyBoardType)
   case birth(String, String, String)
   case phone(String)
+  case gender(String)
 }
 
 enum KeyBoardType {
@@ -62,7 +63,7 @@ var formData: [FormModel] = [
   FormModel(
     title: "성별을 입력해주세요",
     subTitle: "성별",
-    type: FormType.text("Gender", KeyBoardType.email)
+    type: FormType.gender("Gender")
   ),
   FormModel(
     title: "주소를 입력해주세요",

@@ -28,7 +28,6 @@ class TextForm: Form {
   }
   
   private func baseUI() {
-    self.backgroundColor = .white
     self.targetTextField = guidTextField
     
     switch keyBoardType {

@@ -31,7 +31,6 @@ class BirthForm: Form {
     self.targetTextField = yearGuideTextField
     
     [yearGuideTextField, monthGuideTextField, dayGuideTextField].forEach {
-      $0.textAlignment = .center
       $0.keyboardType = .numberPad
       $0.addTarget(self, action: #selector(checkInt(_:)), for: .editingDidEnd)
       $0.addTarget(self, action: #selector(nextFocused(_:)), for: .editingChanged)

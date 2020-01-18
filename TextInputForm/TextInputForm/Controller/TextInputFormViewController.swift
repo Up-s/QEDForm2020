@@ -61,7 +61,13 @@ class TextInputFormViewController: UIViewController {
     })
     
     titleLabel.text = formData[currentFormTag].title
-    forms[currentFormTag].targetTextField?.becomeFirstResponder()
+    
+    if let textField = forms[currentFormTag].targetTextField {
+      textField.becomeFirstResponder()
+    } else {
+      view.endEditing(true)
+    }
+    
   }
   
   private func baseUI() {
@@ -104,6 +110,9 @@ class TextInputFormViewController: UIViewController {
         
       case .phone(let phone):
         tempForm = PhoneForm(first: phone)
+        
+      case .gender(let gender):
+        tempForm = GenderForm(sub: gender)
       }
       
       tempForm.tag = $0

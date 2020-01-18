@@ -10,6 +10,7 @@
 		4F21F11523D14ED60047C3A6 /* FormModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F21F11423D14ED60047C3A6 /* FormModel.swift */; };
 		4FC0035E23D3019400994DF3 /* Form.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FC0035D23D3019400994DF3 /* Form.swift */; };
 		4FC0036023D30D5B00994DF3 /* PhoneForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FC0035F23D30D5B00994DF3 /* PhoneForm.swift */; };
+		4FC0036223D33D4B00994DF3 /* GenderForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FC0036123D33D4B00994DF3 /* GenderForm.swift */; };
 		4FC7E3B823D1E24100FD5FCE /* BirthForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FC7E3B723D1E24100FD5FCE /* BirthForm.swift */; };
 		4FC7E3BC23D1E7FF00FD5FCE /* GuideTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FC7E3BB23D1E7FF00FD5FCE /* GuideTextField.swift */; };
 		4FDEFDE323D024E600AFA2D1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FDEFDE223D024E600AFA2D1 /* AppDelegate.swift */; };
@@ -24,6 +25,7 @@
 		4F21F11423D14ED60047C3A6 /* FormModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormModel.swift; sourceTree = "<group>"; };
 		4FC0035D23D3019400994DF3 /* Form.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Form.swift; sourceTree = "<group>"; };
 		4FC0035F23D30D5B00994DF3 /* PhoneForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneForm.swift; sourceTree = "<group>"; };
+		4FC0036123D33D4B00994DF3 /* GenderForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenderForm.swift; sourceTree = "<group>"; };
 		4FC7E3B723D1E24100FD5FCE /* BirthForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BirthForm.swift; sourceTree = "<group>"; };
 		4FC7E3BB23D1E7FF00FD5FCE /* GuideTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuideTextField.swift; sourceTree = "<group>"; };
 		4FDEFDDF23D024E600AFA2D1 /* TextInputForm.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TextInputForm.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -110,6 +112,7 @@
 				4FDEFDFA23D0282B00AFA2D1 /* TextForm.swift */,
 				4FC7E3B723D1E24100FD5FCE /* BirthForm.swift */,
 				4FC0035F23D30D5B00994DF3 /* PhoneForm.swift */,
+				4FC0036123D33D4B00994DF3 /* GenderForm.swift */,
 			);
 			path = Form;
 			sourceTree = "<group>";
@@ -189,6 +192,7 @@
 				4FC7E3BC23D1E7FF00FD5FCE /* GuideTextField.swift in Sources */,
 				4FDEFDF923D0255800AFA2D1 /* TextInputFormViewController.swift in Sources */,
 				4FDEFDE323D024E600AFA2D1 /* AppDelegate.swift in Sources */,
+				4FC0036223D33D4B00994DF3 /* GenderForm.swift in Sources */,
 				4FDEFDFB23D0282B00AFA2D1 /* TextForm.swift in Sources */,
 				4F21F11523D14ED60047C3A6 /* FormModel.swift in Sources */,
 				4FC0035E23D3019400994DF3 /* Form.swift in Sources */,

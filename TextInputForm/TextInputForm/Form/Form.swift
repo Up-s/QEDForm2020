@@ -17,6 +17,7 @@ class Form: UIView {
   weak var delegate: FormDelegate?
   
   var targetTextField: UITextField?
+  var segmentedControl: UISegmentedControl?
   
   struct Padding {
     static let inset: CGFloat = 0
