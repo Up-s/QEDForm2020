@@ -9,7 +9,7 @@
 import UIKit
 class BirthForm: Form {
   
-  let yearGuideTextField: GuideTextField
+  private let yearGuideTextField: GuideTextField
   private let monthGuideTextField: GuideTextField
   private let dayGuideTextField: GuideTextField
   
@@ -31,6 +31,7 @@ class BirthForm: Form {
     self.targetTextField = yearGuideTextField
     
     [yearGuideTextField, monthGuideTextField, dayGuideTextField].forEach {
+      $0.textAlignment = .center
       $0.keyboardType = .numberPad
       $0.addTarget(self, action: #selector(checkInt(_:)), for: .editingDidEnd)
       $0.addTarget(self, action: #selector(nextFocused(_:)), for: .editingChanged)
@@ -67,10 +68,6 @@ class BirthForm: Form {
       guard let day = Int(text), day < 32 else { return sender.text = nil }
       delegate?.nextFocus(tag: self.tag)
     }
-  }
-  
-  struct Padding {
-    static let itemToPadding: CGFloat = 24
   }
   
   private func constraint() {

@@ -20,6 +20,7 @@ class Form: UIView {
   
   struct Padding {
     static let inset: CGFloat = 0
+    static let itemToPadding: CGFloat = 24
     static let topSpace: CGFloat = 32
     static let bottomSpace: CGFloat = 24
   }

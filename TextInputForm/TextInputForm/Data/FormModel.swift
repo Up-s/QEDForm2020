@@ -11,6 +11,7 @@ import UIKit
 enum FormType {
   case text(String, KeyBoardType)
   case birth(String, String, String)
+  case phone(String)
 }
 
 enum KeyBoardType {
@@ -41,7 +42,7 @@ var formData: [FormModel] = [
   FormModel(
     title: "전화번호를 입력해주세요",
     subTitle: "전화번호",
-    type: FormType.text("Phone Number", KeyBoardType.number)
+    type: FormType.phone("Phone")
   ),
   FormModel(
     title: "닉네임을 입력해주세요",

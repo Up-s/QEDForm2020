@@ -22,7 +22,7 @@ class GuideTextField: UITextField {
   private var subLabelCentYAnchor: NSLayoutConstraint?
   
   private let subLabel = UILabel()
-  private let guidLine = UILabel()
+  private let guidLine = UIView()
   
   init(sub: String?) {
     super.init(frame: .zero)
@@ -72,14 +72,16 @@ class GuideTextField: UITextField {
   @objc
   func guideLineColorChange(_ sender: UITextField) {
     guard let text = sender.text else { return }
-    UIView.animate(withDuration: 1) { [weak self] in
+    UIView.animate(withDuration: 0.4) { [weak self] in
       self?.guidLine.backgroundColor = text.isEmpty ? .red : #colorLiteral(red: 0.2745098174, green: 0.4862745106, blue: 0.1411764771, alpha: 1)
-      self?.layoutIfNeeded()
     }
   }
   
   @objc
   private func deleteText(_ sender: UITextField) {
     sender.text = nil
+    UIView.animate(withDuration: 0.4) { [weak self] in
+      self?.guidLine.backgroundColor = .red
+    }
   }
 }

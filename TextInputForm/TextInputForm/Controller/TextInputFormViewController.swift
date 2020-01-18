@@ -15,7 +15,7 @@ class TextInputFormViewController: UIViewController {
     static let yPadding: CGFloat = 8
   }
   
-  private var visibleIndex = 0
+  private var currentFormTag = 0
   private var forms = [Form]()
   private var topConstraints = [NSLayoutConstraint]()
   
@@ -39,14 +39,13 @@ class TextInputFormViewController: UIViewController {
   }
   
   private func formUpdateAnimate() {
-    visibleIndex += 1
-    
-    guard forms.count > visibleIndex else { return }
+    guard (forms.count - 1) > currentFormTag else { return }
+    currentFormTag += 1
     
     UIView.animate(withDuration: 0.2) { [weak self] in
       guard let `self` = self else { return }
-      for i in 0...(self.visibleIndex - 1) {
-        self.topConstraints[i].constant += Padding.yPadding + self.forms[self.visibleIndex].frame.height
+      for i in 0..<self.currentFormTag {
+        self.topConstraints[i].constant += Padding.yPadding + self.forms[self.currentFormTag].frame.height
       }
       self.view.layoutIfNeeded()
     }
@@ -57,16 +56,17 @@ class TextInputFormViewController: UIViewController {
       options: [],
       animations: { [weak self] in
         guard let `self` = self else { return }
-        self.forms[self.visibleIndex].alpha = 1
+        self.forms[self.currentFormTag].alpha = 1
         self.view.layoutIfNeeded()
     })
     
-    titleLabel.text = formData[visibleIndex].title
+    titleLabel.text = formData[currentFormTag].title
+    forms[currentFormTag].targetTextField?.becomeFirstResponder()
   }
   
   private func baseUI() {
     titleLabel.backgroundColor = .white
-    titleLabel.text = formData[visibleIndex].title
+    titleLabel.text = formData[currentFormTag].title
     titleLabel.font = UIFont.systemFont(ofSize: 30, weight: .heavy)
     
     mainScrollView.delegate = self
@@ -93,21 +93,23 @@ class TextInputFormViewController: UIViewController {
   
   private func createForm() {
     formData.enumerated().forEach {
+      let tempForm: Form
+      
       switch $1.type {
       case .text(let sub, let type):
-        let tempForm = TextForm(sub: sub, keyBoardType: type)
-        tempForm.tag = $0
-        tempForm.delegate = self
-        forms.append(tempForm)
-        mainScrollView.addSubview(tempForm)
+        tempForm = TextForm(sub: sub, keyBoardType: type)
         
       case .birth(let year, let month, let day):
-        let tempForm = BirthForm(year: year, month: month, day: day)
-        tempForm.tag = $0
-        tempForm.delegate = self
-        forms.append(tempForm)
-        mainScrollView.addSubview(tempForm)
+        tempForm = BirthForm(year: year, month: month, day: day)
+        
+      case .phone(let phone):
+        tempForm = PhoneForm(first: phone)
       }
+      
+      tempForm.tag = $0
+      tempForm.delegate = self
+      forms.append(tempForm)
+      mainScrollView.addSubview(tempForm)
     }
   }
   
@@ -140,6 +142,5 @@ extension TextInputFormViewController: UIScrollViewDelegate {
 extension TextInputFormViewController: FormDelegate {
   func nextFocus(tag: Int) {
     formUpdateAnimate()
-    forms[tag + 1].targetTextField?.becomeFirstResponder()
   }
 }
