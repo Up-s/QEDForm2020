@@ -1,6 +1,6 @@
 # TextInputForm
 
- <img src="/Reference/TextInputForm.gif" width="50%" height="50%"></img>
+ <img src="/Reference/TextInputForm.gif" width="30%" height="30%"></img>
 
 ## 기획의도
 
