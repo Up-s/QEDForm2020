@@ -73,7 +73,7 @@ class TextInputFormViewController: UIViewController {
   private func baseUI() {
     titleLabel.backgroundColor = .white
     titleLabel.text = formData[currentFormTag].title
-    titleLabel.font = UIFont.systemFont(ofSize: 30, weight: .heavy)
+    titleLabel.font = UIFont.systemFont(ofSize: 25, weight: .heavy)
     
     mainScrollView.delegate = self
     mainScrollView.backgroundColor = .white
@@ -93,7 +93,7 @@ class TextInputFormViewController: UIViewController {
       mainScrollView.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: Padding.yPadding),
       mainScrollView.leadingAnchor.constraint(equalTo: guide.leadingAnchor),
       mainScrollView.trailingAnchor.constraint(equalTo: guide.trailingAnchor),
-      mainScrollView.bottomAnchor.constraint(equalTo: guide.bottomAnchor)
+      mainScrollView.bottomAnchor.constraint(equalTo: guide.bottomAnchor, constant: -Padding.yPadding)
     ])
   }
   
