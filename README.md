@@ -17,9 +17,9 @@
 스크롤 뷰에 여러 폼을 순차적으로 보여 줌으로서 다른 화면에 넘어가지 않고 한번에 정보를 받을 수 있음 
 
  ### TextForm
-```
+
  <img src="/Reference/BirthForm.jpg" width="50%" height="50%"></img>
-```
+
  ### PhoneForm
 
  <img src="/Reference/PhoneForm.jpg" width="50%" height="50%"></img>
