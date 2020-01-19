@@ -18,16 +18,16 @@
 
  ### TextForm
 
- <img src="/Referce/TextForm.jpg" width="50%" height="50%"></img>
+ <img src="/Reference/BirthForm.jpg" width="50%" height="50%"></img>
 
  ### PhoneForm
 
- <img src="/Referce/PhoneForm.jpg" width="50%" height="50%"></img>
+ <img src="/Reference/PhoneForm.jpg" width="50%" height="50%"></img>
 
  ### BirthForm
 
- <img src="/Referce/BirthFormjpg" width="50%" height="50%"></img>
+ <img src="/Reference/BirthFormjpg" width="50%" height="50%"></img>
 
  ### BirthForm
 
- <img src="/Referce/GenderForm.jpg" width="50%" height="50%"></img>
+ <img src="/Reference/GenderForm.jpg" width="50%" height="50%"></img>
