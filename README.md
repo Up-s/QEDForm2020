@@ -1,5 +1,7 @@
 # TextInputForm
 
+ <img src="/Referce/TextInputForm.gif" width="50%" height="50%"></img>
+
 ## 기획의도
 
 사용자에게 다량의 정보를 받을때 '어떻게 해야 효과적일까' 라는 고민에서 시작
