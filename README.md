@@ -9,7 +9,7 @@
 ```
  - 첫째. 지루해 보이지 않아야 한다
  - 둘째. Simple is the best
- - 셋째. 한눈에 보여야 한다 ( 다른 뷰로 넘어가지 않는 방법)
+ - 셋째. 한눈에 보여야 한다 ( 다른 뷰로 넘어가지 않는 방법 )
 ```
 
 위 세가지를 중점으로 빌드업
@@ -30,6 +30,6 @@
 
  <img src="/Reference/BirthForm.jpg" width="50%" height="50%"></img>
 
- ### BirthForm
+ ### SegmentForm
 
  <img src="/Reference/GenderForm.jpg" width="50%" height="50%"></img>
