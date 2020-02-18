@@ -1,4 +1,4 @@
-# TextInputForm
+# QEDForm
 
  <img src="/Reference/TextInputForm.gif" width="30%" height="30%"></img>
 
