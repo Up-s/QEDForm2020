@@ -1,9 +1,9 @@
 //
 //  Form.swift
-//  TextInputForm
+//  QEDForm
 //
-//  Created by Lee on 2020/01/18.
-//  Copyright © 2020 Up's. All rights reserved.
+//  Created by Lee on 2020/02/18.
+//  Copyright © 2020 Kira. All rights reserved.
 //
 
 import UIKit
@@ -16,8 +16,7 @@ class Form: UIView {
   
   weak var delegate: FormDelegate?
   
-  var targetTextField: UITextField?
-  var segmentedControl: UISegmentedControl?
+  var nextTarget: UIView?
   
   struct Padding {
     static let inset: CGFloat = 0

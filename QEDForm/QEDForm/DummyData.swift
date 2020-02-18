@@ -1,31 +1,13 @@
 //
-//  FormModel.swift
-//  TextInputForm
+//  DummyData.swift
+//  QEDForm
 //
-//  Created by Lee on 2020/01/17.
-//  Copyright © 2020 Up's. All rights reserved.
+//  Created by Lee on 2020/02/18.
+//  Copyright © 2020 Kira. All rights reserved.
 //
 
-import UIKit
+import Foundation
 
-struct FormModel {
-  let title: String
-  let type: FormType
-}
-
-enum FormType {
-  case text(String, KeyBoardType)
-  case birth(String, String, String)
-  case phone(String)
-  case gender(String)
-}
-
-enum KeyBoardType {
-  case nomarl
-  case email
-  case number
-  case password
-}
 
 var formData: [FormModel] = [
   FormModel(

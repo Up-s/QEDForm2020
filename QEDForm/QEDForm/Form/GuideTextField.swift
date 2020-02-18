@@ -1,18 +1,16 @@
 //
 //  GuideTextField.swift
-//  TextInputForm
+//  QEDForm
 //
-//  Created by Lee on 2020/01/17.
-//  Copyright © 2020 Up's. All rights reserved.
+//  Created by Lee on 2020/02/18.
+//  Copyright © 2020 Kira. All rights reserved.
 //
 
 import UIKit
 
 class GuideTextField: UITextField {
   
-  override func canPerformAction(_ action: Selector, withSender sender: Any?) -> Bool {
-    return false
-  }
+  override func canPerformAction(_ action: Selector, withSender sender: Any?) -> Bool { false }
   
   lazy var height: CGFloat = {
     self.font = UIFont.systemFont(ofSize: 25, weight: .light)
@@ -31,7 +29,6 @@ class GuideTextField: UITextField {
     self.autocapitalizationType = .none
     self.addTarget(self, action: #selector(subLabelAnimated), for: .editingChanged)
     self.addTarget(self, action: #selector(guideLineColorChange), for: .editingChanged)
-    self.addTarget(self, action: #selector(deleteText), for: .editingDidBegin)
     
     subLabel.text = sub
     subLabel.alpha = 0
@@ -74,14 +71,6 @@ class GuideTextField: UITextField {
     guard let text = sender.text else { return }
     UIView.animate(withDuration: 0.4) { [weak self] in
       self?.guidLine.backgroundColor = text.isEmpty ? .red : #colorLiteral(red: 0.2745098174, green: 0.4862745106, blue: 0.1411764771, alpha: 1)
-    }
-  }
-  
-  @objc
-  private func deleteText(_ sender: UITextField) {
-    sender.text = nil
-    UIView.animate(withDuration: 0.4) { [weak self] in
-      self?.guidLine.backgroundColor = .red
     }
   }
 }

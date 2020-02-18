@@ -1,9 +1,9 @@
 //
 //  AppDelegate.swift
-//  TextInputForm
+//  QEDForm
 //
-//  Created by Lee on 2020/01/16.
-//  Copyright © 2020 Up's. All rights reserved.
+//  Created by Lee on 2020/02/18.
+//  Copyright © 2020 Kira. All rights reserved.
 //
 
 import UIKit
@@ -17,8 +17,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     window = UIWindow(frame: UIScreen.main.bounds)
     
-//    window?.rootViewController = TextInputFormViewController()
-    window?.rootViewController = UINavigationController(rootViewController: TextInputFormViewController())
+    window?.rootViewController = UINavigationController(rootViewController: FormViewController())
     window?.makeKeyAndVisible()
     
     return true

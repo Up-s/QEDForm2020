@@ -1,21 +1,20 @@
 //
-//  TextInputFormViewController.swift
-//  TextInputForm
+//  FormViewController.swift
+//  QEDForm
 //
-//  Created by Lee on 2020/01/16.
-//  Copyright © 2020 Up's. All rights reserved.
+//  Created by Lee on 2020/02/18.
+//  Copyright © 2020 Kira. All rights reserved.
 //
 
 import UIKit
 
-class TextInputFormViewController: UIViewController {
+class FormViewController: UIViewController {
   
   private struct Padding {
-    static let xPadding: CGFloat = 32
-    static let yPadding: CGFloat = 8
+    static let xPadding: CGFloat = 24
+    static let yPadding: CGFloat = 16
   }
   
-  private var currentFormTag = 0
   private var forms = [Form]()
   private var topConstraints = [NSLayoutConstraint]()
   
@@ -33,48 +32,65 @@ class TextInputFormViewController: UIViewController {
   }
   
   private func navigation() {
-    navigationItem.title = "Sign Up"
+    navigationItem.title = "QED Form"
     navigationController?.navigationBar.shadowImage = UIImage()
     navigationController?.navigationBar.barTintColor = .white
   }
   
-  private func formUpdateAnimate() {
-    guard (forms.count - 1) > currentFormTag else { return }
-    currentFormTag += 1
-    
-    UIView.animate(withDuration: 0.2) { [weak self] in
-      guard let `self` = self else { return }
-      for i in 0..<self.currentFormTag {
-        self.topConstraints[i].constant += Padding.yPadding + self.forms[self.currentFormTag].frame.height
-      }
-      self.view.layoutIfNeeded()
+  private var visibleFormTag = 0 {
+    didSet {
+      guard visibleFormTag == (forms.count - 1) else { return }
+      navigationItem.rightBarButtonItem = UIBarButtonItem(title: "완료", style: .done, target: self, action: #selector(upload))
     }
+  }
+  
+  @objc private func upload() {
+    view.endEditing(true)
+  }
+  
+  private func formUpdateAnimate(currentFormTag: Int) {
+    // 마지막 입력을 알기위한 조건
+    guard (forms.count - 1) > currentFormTag else { return }
     
-    UIView.animate(
-      withDuration: 0.2,
-      delay: 0.1,
-      options: [],
-      animations: { [weak self] in
-        guard let `self` = self else { return }
-        self.forms[self.currentFormTag].alpha = 1
-        self.view.layoutIfNeeded()
-    })
+    // 중간에 변경되었을때 애니매니션 및 텍스트필드 이동을 막기위해
+    guard visibleFormTag == currentFormTag else { return }
+    visibleFormTag += 1
     
-    titleLabel.text = formData[currentFormTag].title
-    
-    if let textField = forms[currentFormTag].targetTextField {
+    if let textField = forms[currentFormTag + 1].nextTarget as? UITextField {
       textField.becomeFirstResponder()
     } else {
       view.endEditing(true)
     }
     
+    let duration = 0.5
+    let delay = 0.2
+    UIView.animate(withDuration: duration) { [weak self] in
+      guard let `self` = self else { return }
+      for i in 0...currentFormTag {
+        self.topConstraints[i].constant += Padding.yPadding + self.forms[currentFormTag + 1].frame.height
+      }
+      self.view.layoutIfNeeded()
+    }
+    
+    UIView.animate(
+      withDuration: duration,
+      delay: delay,
+      animations: { [weak self] in
+        guard let `self` = self else { return }
+        self.forms[currentFormTag + 1].alpha = 1
+        self.view.layoutIfNeeded()
+    })
+    
+    titleLabel.text = formData[currentFormTag].title
   }
   
   private func baseUI() {
+    titleLabel.numberOfLines = 0
     titleLabel.backgroundColor = .white
-    titleLabel.text = formData[currentFormTag].title
+    titleLabel.text = formData[0].title
     titleLabel.font = UIFont.systemFont(ofSize: 25, weight: .heavy)
     
+    mainScrollView.alwaysBounceVertical = true
     mainScrollView.delegate = self
     mainScrollView.backgroundColor = .white
     
@@ -113,6 +129,9 @@ class TextInputFormViewController: UIViewController {
         
       case .gender(let gender):
         tempForm = GenderForm(sub: gender)
+        
+      case .picker(let sub):
+        tempForm = PickerForm(sub: sub)
       }
       
       tempForm.tag = $0
@@ -133,7 +152,7 @@ class TextInputFormViewController: UIViewController {
       $1.trailingAnchor.constraint(equalTo: mainScrollView.trailingAnchor, constant: -Padding.xPadding).isActive = true
       
       if $0 == 0 {
-        forms[$0].targetTextField?.becomeFirstResponder()
+        forms[$0].nextTarget?.becomeFirstResponder()
         $1.bottomAnchor.constraint(equalTo: mainScrollView.bottomAnchor, constant: -Padding.yPadding).isActive = true
       } else {
         $1.alpha = 0
@@ -142,14 +161,14 @@ class TextInputFormViewController: UIViewController {
   }
 }
 
-extension TextInputFormViewController: UIScrollViewDelegate {
+extension FormViewController: UIScrollViewDelegate {
   func scrollViewWillBeginDecelerating(_ scrollView: UIScrollView) {
     view.endEditing(true)
   }
 }
 
-extension TextInputFormViewController: FormDelegate {
+extension FormViewController: FormDelegate {
   func nextFocus(tag: Int) {
-    formUpdateAnimate()
+    formUpdateAnimate(currentFormTag: tag)
   }
 }

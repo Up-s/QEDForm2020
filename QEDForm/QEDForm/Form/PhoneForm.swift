@@ -1,9 +1,9 @@
 //
 //  PhoneForm.swift
-//  TextInputForm
+//  QEDForm
 //
-//  Created by Lee on 2020/01/18.
-//  Copyright © 2020 Up's. All rights reserved.
+//  Created by Lee on 2020/02/18.
+//  Copyright © 2020 Kira. All rights reserved.
 //
 
 import UIKit
@@ -34,7 +34,7 @@ class PhoneForm: Form {
   }
   
   private func baseUI() {
-    self.targetTextField = firstGuideTextField
+    self.nextTarget = firstGuideTextField
     
     self.addSubview(guardLabel)
     

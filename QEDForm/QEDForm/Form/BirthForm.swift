@@ -1,9 +1,9 @@
 //
 //  BirthForm.swift
-//  TextInputForm
+//  QEDForm
 //
-//  Created by Lee on 2020/01/17.
-//  Copyright © 2020 Up's. All rights reserved.
+//  Created by Lee on 2020/02/18.
+//  Copyright © 2020 Kira. All rights reserved.
 //
 
 import UIKit
@@ -29,7 +29,7 @@ class BirthForm: Form {
   }
   
   private func baseUI() {
-    self.targetTextField = yearGuideTextField
+    self.nextTarget = yearGuideTextField
     
     [yearGuideTextField, monthGuideTextField, dayGuideTextField].forEach {
       $0.keyboardType = .numberPad

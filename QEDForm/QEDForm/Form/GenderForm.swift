@@ -1,9 +1,9 @@
 //
 //  GenderForm.swift
-//  TextInputForm
+//  QEDForm
 //
-//  Created by Lee on 2020/01/18.
-//  Copyright © 2020 Up's. All rights reserved.
+//  Created by Lee on 2020/02/18.
+//  Copyright © 2020 Kira. All rights reserved.
 //
 
 import UIKit
@@ -36,7 +36,7 @@ class GenderForm: Form {
     genderSegmentedControl
       .setTitleTextAttributes([
         NSAttributedString.Key.font: UIFont.systemFont(ofSize: 15, weight: .heavy)], for: .normal)
-    self.segmentedControl = genderSegmentedControl
+    self.nextTarget = genderSegmentedControl
     genderSegmentedControl.addTarget(self, action: #selector(sengmentedControlValueChanged(_:)), for: .valueChanged)
     self.addSubview(genderSegmentedControl)
   }
