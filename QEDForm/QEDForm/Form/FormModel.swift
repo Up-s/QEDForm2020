@@ -19,6 +19,7 @@ enum FormType {
   case phone(String)
   case gender(String)
   case picker(String)
+  case date(String)
 }
 
 enum KeyBoardType {
