@@ -8,7 +8,7 @@
 
 import UIKit
 
-protocol FormDelegate: class {
+protocol FormDelegate: AnyObject {
   func nextFocus(tag: Int)
 }
 
